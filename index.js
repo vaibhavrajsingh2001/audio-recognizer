@@ -1,7 +1,7 @@
 let recognizer;
+const NUM_FRAMES = 3;
 const INPUT_SHAPE = [NUM_FRAMES, 232, 1];
 let model;
-const NUM_FRAMES = 3;
 let examples = [];
 
 function predictWord() {
