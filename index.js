@@ -61,6 +61,8 @@ function normalize(x) {
  **TRAIN MODEL**
  */
 async function train() {
+    const loader = document.getElementById('loader');
+    loader.innerText = 'Model is being trained!';
     toggleButtons(false);
     const ys = tf.oneHot(examples.map(e => e.label), 3);
     const xsShape = [examples.length, ...INPUT_SHAPE];
@@ -78,6 +80,7 @@ async function train() {
     });
     tf.dispose([xs, ys]);
     toggleButtons(true);
+    loader.innerText = '';
 }
 /*
  **BUILD MODEL**

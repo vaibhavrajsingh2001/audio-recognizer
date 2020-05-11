@@ -3,16 +3,27 @@
 <head>
     <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
     <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/speech-commands"></script>
+    <style>
+        button {
+            width: 100px;
+            border-radius: 5px;
+            background-color: teal;
+            color: aliceblue;
+        }
+    </style>
     <title>Audio recognizer</title>
 </head>
 
 <body>
+    <p>Hold each button (atleast for 150 collections) in the line below to train for respective action:</p>
     <button id="left" onmousedown="collect(0)" onmouseup="collect(null)">Left</button>
     <button id="right" onmousedown="collect(1)" onmouseup="collect(null)">Right</button>
     <button id="noise" onmousedown="collect(2)" onmouseup="collect(null)">Noise</button>
-    <br /><br />
+    <hr /><hr />
+    <p>After giving the sample data, click on train for the model to be trained.</p>
     <button id="train" onclick="train()">Train</button>
-    <br /><br />
+    <hr /><hr />
+    <p id="loader"></p>
     <button id="listen" onclick="listen()">Listen</button>
     <input type="range" id="output" min="0" max="10" step="0.1">
     <div id="console"></div>
